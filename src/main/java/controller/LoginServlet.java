@@ -24,7 +24,7 @@ public class LoginServlet extends HttpServlet {
         String password = request.getParameter("password");
 
         User user = UserDatabase.getUserByUsername(username);
-
+        //TODO: get user from DB and compare password
         if (user != null && user.password().equals(password)) {
             HttpSession session = request.getSession();
             session.setAttribute("user", user);

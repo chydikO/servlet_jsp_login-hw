@@ -73,7 +73,7 @@
                     <% if (message != null) { %>
                     <p><%= message %></p>
                     <% } %>
-                    <form method="post" action="<%=request.getContextPath()%>/">
+                    <form method="post" action="<%=request.getContextPath()%>/login">
                         <label>
                             Ім'я користувача: <input name="username" required
                         ></label><br>

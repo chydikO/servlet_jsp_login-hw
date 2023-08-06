@@ -44,7 +44,9 @@
         <div class="container">
             <div class="container-layout">
                 <h1>Інформація про користувача</h1>
-                <p><%=request.getAttribute("greeting")%>, <%=request.getAttribute("username")%>!</p>
+                <p>
+                    <%=request.getAttribute("greeting")%>, <%=request.getAttribute("username")%>!
+                </p>
                 <form method="post" action="<%=request.getContextPath()%>/userinfo">
                     <input type="submit" value="Вийти">
                 </form>

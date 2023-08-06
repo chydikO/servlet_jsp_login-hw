@@ -14,12 +14,12 @@ import java.util.Date;
 @WebServlet(urlPatterns = "/userinfo")
 public class UserInfoServlet extends HttpServlet {
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        HttpSession session = req.getSession();
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session = request.getSession();
         User user = (User) session.getAttribute("user");
 
         if (user == null) {
-            resp.sendRedirect(req.getContextPath() + "/");
+            response.sendRedirect(request.getContextPath() + "/");
             return;
         }
 
@@ -37,15 +37,15 @@ public class UserInfoServlet extends HttpServlet {
             greeting = "Доброї ночі";
         }
 
-        req.setAttribute("greeting", greeting);
-        req.setAttribute("username", user.username());
-        req.getRequestDispatcher("/WEB-INF/views/userinfo.jsp").forward(req, resp);
+        request.setAttribute("greeting", greeting);
+        request.setAttribute("username", user.username());
+        request.getRequestDispatcher("/WEB-INF/views/userinfo.jsp").forward(request, response);
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        HttpSession session = req.getSession();
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session = request.getSession();
         session.invalidate();
-        resp.sendRedirect(req.getContextPath() + "/");
+        response.sendRedirect(request.getContextPath() + "/");
     }
 }

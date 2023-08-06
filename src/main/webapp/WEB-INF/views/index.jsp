@@ -68,7 +68,10 @@
                 <h1>Home page</h1>
                 <nav>
                     <menu>
+                        <% Boolean userIsAuthorized = (Boolean) request.getAttribute("userIsAuthorized"); %>
+                        <% if (userIsAuthorized == null) { %>
                         <li><a href="<%=request.getContextPath()%>/login">Вхід</a></li>
+                        <% } %>
                         <li><a href="<%=request.getContextPath()%>/userinfo">Переглянути інформацію</a></li>
                     </menu>
                 </nav>
